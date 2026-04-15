@@ -101,7 +101,7 @@ app.get('/', function (req, res) {
 ## closing remarks or whatever
 that's about all i have to say\
 \
-happy logging or something i guess\
+happy logging or something i guess
 
 uhhh mit license\
 small credit where its due, shoutout [reidlab](https://github.com/reidlab) for basically putting me on this in the first place. he made the original small tiny lib file i used to use before i was just like "wait.. this could be An Actual Thing"
