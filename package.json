@@ -1,0 +1,55 @@
+{
+    "name": "pretty-simple-logger",
+    "author": {
+        "name": "ayeuhugyu"
+    },
+    "description": "a decently simple logger which outputs prettily.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ayeuhugyu/pretty-simple-logger.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ayeuhugyu/pretty-simple-logger/issues"
+    },
+    "version": "1.0.0",
+    "scripts": {
+        "tsc": "tsc",
+        "format": "prettier --write \"src/**/*.{ts,js}\"",
+        "freeze": "freeze ./images/base-log-test-input.ansi --padding=\"15,15,-5,15\" --margin 0 --theme github-dark --border.radius 5 --border.width 2 -o images/base-log-test.png && freeze ./images/prefix-test-input.ansi --padding=\"15,15,-5,15\" --margin 0 --theme github-dark --border.radius 5 --border.width 2 -o images/prefix-test.png"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "@types/node": "^25.6.0",
+        "prettier": "^3.8.2",
+        "typescript": "~5.9.3"
+    },
+    "dependencies": {
+        "@types/fs-extra": "^11.0.4",
+        "chalk": "^5.6.2",
+        "fs-extra": "^11.3.4"
+    },
+    "type": "module",
+    "files": [
+        "dist",
+        "src",
+        "README.md",
+        "LICENSE.md"
+    ],
+    "exports": {
+        "import": "./dist/index.js",
+        "require": "./dist/index.js"
+    },
+    "types": "dist/index.d.ts",
+    "module": "dist/index.js",
+    "license": "MIT",
+    "keywords": [
+        "simple",
+        "logger",
+        "logging",
+        "pretty",
+        "typescript"
+    ],
+    "engines": {
+        "node": ">=16.0.0"
+    }
+}

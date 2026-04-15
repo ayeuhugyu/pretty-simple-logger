@@ -1,0 +1,8 @@
+[94m>[37m bun run log-test.ts [90m--loglevel [37msilly
+[90m2026-04-14 16:45:17.112[39m [91mERROR[37m an error occurred while saying hello to the world 
+[90m2026-04-14 16:45:17.119[39m [33m WARN[37m the world didn't respond back to hello 
+[90m2026-04-14 16:45:17.120[39m [32m INFO[37m hello, world! 
+[90m2026-04-14 16:45:17.122[39m [34m HTTP[37m "GET /hello/world HTTP/1.1" 200 2 "-" "curl/8.7.1" 
+[90m2026-04-14 16:45:17.123[39m [94mDEBUG[37m hello world: { some: [32m'debuggable'[37m, information: [32m'(or so you think...)'[37m } 
+[90m2026-04-14 16:45:17.127[39m [94mVRBSE[37m beginning to say hello to a world somewhere 
+[90m2026-04-14 16:45:17.128[39m [95mSILLY[37m blehhh 
