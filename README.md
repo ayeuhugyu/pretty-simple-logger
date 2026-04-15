@@ -57,7 +57,7 @@ const log = new Logger("commands/ping");
 log.info("replied with Pong!");
 ```
 output looks like this:\
-<img src="images/prefix-test.png" alt="command line output" width="800">\
+<img src="images/prefix-test.png" alt="command line output" width="800">
 
 ### other config options
 you can tweak various settings through the logger options:
