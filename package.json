@@ -6,7 +6,7 @@
     "description": "a decently simple logger which outputs prettily.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ayeuhugyu/pretty-simple-logger.git"
+        "url": "git+https://github.com/ayeuhugyu/pretty-simple-logger.git"
     },
     "bugs": {
         "url": "https://github.com/ayeuhugyu/pretty-simple-logger/issues"
