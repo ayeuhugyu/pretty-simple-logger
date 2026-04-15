@@ -79,7 +79,7 @@ or after creation:
 log.options.logDirectory = "new_logs";
 ```
 
-the default options can be found [here](https://github.com/ayeuhugyu/pretty-simple-logger/blob/main/src/index.ts#L76)
+the default options can be found [here](https://github.com/ayeuhugyu/pretty-simple-logger/blob/master/src/index.ts#L76)
 
 ### using streams
 if for whatever reason you need a stream to write to, you can do that too. just use the `getStream("logLevel")` method\
