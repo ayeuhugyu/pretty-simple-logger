@@ -5,10 +5,22 @@ this library has two goals:
 1. simple logging, with VERY little excess code
 2. customization. despite being simple, you have the OPTION to change stuff around.
 
+## how to install:
+since i unfortunately haven't uploaded this to npm yet (i'm working onnn ittttttt), you have to manually install it.
+```bash
+git clone --depth 1 https://github.com/ayeuhugyu/pretty-simple-logger.git
+cd ./pretty-simple-logger
+npm pack
+mv ./pretty-simple-logger-1.0.0.tgz ../
+cd ..
+npm install pretty-simple-logger-1.0.0.tgz # or whatever package manager you use, most should support it
+```
+
+it will Soon:tm: be on npm, i just gotta do all the 2fa shit and stuff
 ## example logic:
 again, everything is designed to be INCREDIBLY simple. here's how easy it is to start logging stuff:
 ```ts
-import { log } from "pretty-simple-log";
+import { log } from "pretty-simple-logger";
 
 // boom now you can log stuff
 
