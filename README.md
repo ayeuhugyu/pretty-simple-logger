@@ -98,6 +98,7 @@ app.get('/', function (req, res) {
     res.send('hello, world!')
 });
 ```
+alternatively, you can pass any existing `Readable` stream into `log.useStream("logLevel", stream)` and itll do the same thing. getStream just creates a new stream.
 ## closing remarks or whatever
 that's about all i have to say\
 \

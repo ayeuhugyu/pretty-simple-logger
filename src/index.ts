@@ -2,7 +2,7 @@ import chalk, { type ChalkInstance } from 'chalk';
 import util from 'util';
 import fs from 'fs-extra';
 import EventEmitter from 'events';
-import { PassThrough } from 'stream';
+import Stream, { PassThrough, Readable, Transform, Writable } from 'stream';
 import path from 'path';
 
 export type LogLevel = 'error' | 'warn' | 'info' | 'http' | 'verbose' | 'debug' | 'silly';
@@ -42,8 +42,10 @@ export type PartialLoggerOptions = {
 };
 
 interface LoggerStreamRecord {
-    stream: PassThrough;
+    stream: Readable;
     level: LogLevel;
+    disconnectOnly?: boolean;
+    handler?: (chunk: any) => void;
 }
 
 function ensureLogfiles(options: LoggerOptions) {
@@ -188,14 +190,26 @@ export class Logger {
 
     private streams: LoggerStreamRecord[] = [];
 
-    public getStream(level: LogLevel) {
-        const stream = new PassThrough();
+    public getStream(level: LogLevel): Writable {
+        const stream = new Transform();
 
         stream.on('data', chunk => {
             this.log(level, String(chunk));
         });
 
         this.streams.push({ stream, level });
+
+        return stream;
+    }
+
+    public useStream(level: LogLevel, stream: Readable) {
+        const handler = (chunk: any) => {
+            this.log(level, String(chunk));
+        }
+
+        stream.on('data', handler);
+
+        this.streams.push({ stream, level, disconnectOnly: true, handler });
 
         return stream;
     }
@@ -241,7 +255,11 @@ export class Logger {
 
     public destroyAllStreams() {
         this.streams.forEach(stream => {
-            stream.stream.destroy();
+            if (stream.disconnectOnly && stream.handler) {
+                stream.stream.off('data', stream.handler);
+            } else {
+                stream.stream.destroy();
+            }
         });
     }
 
