@@ -165,8 +165,15 @@ export class Logger {
                 prefix = '';
             }
 
-            const finalStdout = `${date.stdout} ${level.stdout}${prefix ? ` ${chalk.gray(prefix)}` : ''} ${message.stdout}\n`;
-            const finalFileout = `${date.fileout} ${level.fileout}${prefix ? ` ${prefix}` : ''} ${message.fileout}\n`;
+            const stdoutPrefix = `${date.stdout} ${level.stdout}${prefix ? ` ${chalk.gray(prefix)}` : ''} `;
+            const fileoutPrefix = `${date.fileout} ${level.fileout}${prefix ? ` ${prefix}` : ''} `;
+
+            const prefixNewlines = (prefix: string, text: string) => {
+                return text.split("\n").map(line => `${prefix}${line}`).join("\n");
+            }
+
+            const finalStdout = `${prefixNewlines(stdoutPrefix, message.stdout)}\n`;
+            const finalFileout = `${prefixNewlines(fileoutPrefix, message.fileout)}\n`;
 
             const logfile = path.join(options.logDirectory, options.levelFilenames[level.level]);
             const globalfile = path.join(options.logDirectory, options.levelFilenames.global);
