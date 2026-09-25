@@ -238,25 +238,25 @@ export class Logger {
         this.writers.outputFunction(this.options, { date: currentDate, ...dateString }, { level, ...levelString }, { message, ...payloadString });
     }
 
-    public error(...message: unknown[]) {
+    public error = (...message: unknown[]) => {
         return this.log('error', ...message);
     }
-    public warn(...message: unknown[]) {
+    public warn = (...message: unknown[]) => {
         return this.log('warn', ...message);
     }
-    public info(...message: unknown[]) {
+    public info = (...message: unknown[]) => {
         return this.log('info', ...message);
     }
-    public http(...message: unknown[]) {
+    public http = (...message: unknown[]) => {
         return this.log('http', ...message);
     }
-    public verbose(...message: unknown[]) {
+    public verbose = (...message: unknown[]) => {
         return this.log('verbose', ...message);
     }
-    public debug(...message: unknown[]) {
+    public debug = (...message: unknown[]) => {
         return this.log('debug', ...message);
     }
-    public silly(...message: unknown[]) {
+    public silly = (...message: unknown[]) => {
         return this.log('silly', ...message);
     }
 
